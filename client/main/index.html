@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clients</title>
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script defer src="../js/main.js"></script>
+</head>
+<body>
+
+    <header>
+        <div class="header__container">
+            <img class="header__logo" src="../img/logo.svg" alt="logo">
+            <div class="search__container">
+                <input class="header__search" placeholder="Введите запрос" type="text">
+                <ul id="search"></ul>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="main__container">
+            <h2 class="main__title">Клиенты</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th class="columns">
+                            <button class="sort t" data-btn="id">ID
+                                <svg class="arrow" width="12" height="12" viewBox="0 0 12 12" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M2 6L2.705 6.705L5.5 3.915L5.5 10L6.5 10L6.5 3.915L9.29 6.71L10 6L6 2L2 6Z"
+                                        fill="#9873FF" />
+                                </svg>
+                            </button>
+                        </th>
+                        <th class="columns">
+                            <button class="sort" data-btn="name">Фамилия Имя Отчество
+                                <svg class="arrow" width="12" height="12" viewBox="0 0 12 12" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_121_1978)">
+                                        <path
+                                            d="M10 6L9.295 5.295L6.5 8.085L6.5 2H5.5L5.5 8.085L2.71 5.29L2 6L6 10L10 6Z"
+                                            fill="#9873FF" />
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_121_1978">
+                                            <rect width="12" height="12" fill="white" />
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                                <div class="sort__word">А-Я</div>
+                                <div class="sort__word--active">Я-А</div>
+                            </button>
+                        </th>
+                        <th class="columns">
+                            <button class="sort" data-btn="createdAt">Дата и время создания
+                                <svg class="arrow" width="12" height="12" viewBox="0 0 12 12" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_121_1978)">
+                                        <path
+                                            d="M10 6L9.295 5.295L6.5 8.085L6.5 2H5.5L5.5 8.085L2.71 5.29L2 6L6 10L10 6Z"
+                                            fill="#9873FF" />
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_121_1978">
+                                            <rect width="12" height="12" fill="white" />
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                            </button>
+                        </th>
+                        <th class="columns">
+                            <button class="sort" data-btn="updatedAt">Последние изменения
+                                <svg class="arrow" width="12" height="12" viewBox="0 0 12 12" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_121_1978)">
+                                        <path
+                                            d="M10 6L9.295 5.295L6.5 8.085L6.5 2H5.5L5.5 8.085L2.71 5.29L2 6L6 10L10 6Z"
+                                            fill="#9873FF" />
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_121_1978">
+                                            <rect width="12" height="12" fill="white" />
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                            </button>
+                        </th>
+                        <th class="columns th__item">Контакты</th>
+                        <th class="columns th__item">Действия</th>
+                    </tr>
+                </thead>
+                <tbody id="data"></tbody>
+            </table>
+            <button class="add-client">
+                <svg width="23" height="16" viewBox="0 0 23 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M14.5 8C16.71 8 18.5 6.21 18.5 4C18.5 1.79 16.71 0 14.5 0C12.29 0 10.5 1.79 10.5 4C10.5 6.21 12.29 8 14.5 8ZM5.5 6V3H3.5V6H0.5V8H3.5V11H5.5V8H8.5V6H5.5ZM14.5 10C11.83 10 6.5 11.34 6.5 14V16H22.5V14C22.5 11.34 17.17 10 14.5 10Z"
+                        fill="#9873FF" />
+                </svg>&nbsp;
+                Добавить клиента
+            </button>
+        </div>
+    </main>
+</body>
+</html>
