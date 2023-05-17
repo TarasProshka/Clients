@@ -1,3 +1,7 @@
+Инструкция по запуску
+
+В папке crm-backend выполните команду node index, после чего из папки client/main откройте файл index.html
+
 Главная
 
 ![Screenshot_1](https://user-images.githubusercontent.com/111509370/226926205-4b5fe1a6-8619-4c3e-acca-d430da56d6db.png)
