@@ -161,7 +161,6 @@ function createClient(client) {
         deleteModal.deleteTrue.addEventListener('click', () => {
             deleteById(client.id)
             tr.remove()
-    
             deleteModal.modal.classList.remove('modal__delete--active')
             setTimeout(() => deleteModal.modal.remove(), 300)
         })
@@ -201,8 +200,6 @@ const deleteById = async (id) => {
     const response = await fetch(`http://localhost:3000/api/clients/${id}`, {
         method: 'DELETE',
     })
-    const clients = await GET()
-    findClients(clients)
 }
 
 const findParam = async (value) => {
@@ -681,8 +678,6 @@ const modalEdit = (data) => {
                 contacts: contacts
             })
         })
-        const find = await GET()
-        findClients(find)
         if (response.status >= 400) {
             const error = serverError()
             error.modalDescr.textContent = 'Не удалось изменить клиента! Попробуйте немного позжe'
@@ -913,8 +908,6 @@ function creareModal() {
                 contacts: contacts
             })
         })
-        const find = await GET()
-        findClients(find)
         if (response.status >= 400) {
             const error = serverError()
             document.body.append(error.modal)
@@ -1059,13 +1052,11 @@ const findClients = (clients) => {
     const findList = document.getElementById('search')
     const input = document.querySelector('.header__search')
     findList.classList.add('remove__link')
-    findList.innerHTML = ''
     clients.forEach(client => {
         const findItem = document.createElement('li')
         const findLink = document.createElement('a')
         findItem.classList.add('find__item')
         findLink.classList.add('find__link')
-
         findLink.textContent = `${client.name} ${client.surname} ${client.lastName}`
         findLink.href = '#'
         findItem.append(findLink)
@@ -1080,8 +1071,10 @@ const findClients = (clients) => {
         }
     }
     let time;
-    const inputDelay = async() => {
-        clearTimeout(time)
+    const inputDelay = async () => {
+        if (time) {
+            clearTimeout(time)
+        }
         time = setTimeout(() => {
             const value = input.value.trim()
             const foundItems = document.querySelectorAll('.find__item')
@@ -1093,8 +1086,8 @@ const findClients = (clients) => {
                         link.innerHTML = link.innerText
                     }
                     else {
-                        link.classList.remove('remove__link')
                         findList.classList.remove('remove__link')
+                        link.classList.remove('remove__link')
                         const str = link.innerText
                         link.innerHTML = marker(str, link.innerText.search(value), value.length)
                     }
@@ -1105,14 +1098,14 @@ const findClients = (clients) => {
                     tBody.innerHTML = ''
                     clients.forEach(client => {
                         tBody.append(createClient(client))
-                    })
-                        link.classList.remove('remove__link')
-                        findList.classList.add('remove__link')
+                        link.classList.add('remove__link')
                         link.innerHTML = link.innerText
+                        findList.classList.add('remove__link')
                     })
+                })
             }
         }, 300)
-        }
+    }
     input.addEventListener('input', inputDelay)
     const marker = (all, need, length) => all.slice(0, need) + '<mark>' + all.slice(need, need + length) + '</mark>' + all.slice(need + length)
 }
